@@ -1,7 +1,7 @@
-
 public class Square implements Shape{
 
     double a;
+
     public Square (double a) {
         this.a = a;
     }

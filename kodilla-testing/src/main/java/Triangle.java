@@ -1,3 +1,4 @@
+
 public class Triangle implements Shape{
 
     double a;
@@ -7,6 +8,7 @@ public class Triangle implements Shape{
         this.a = a;
         this.h = h;
     }
+
     @Override
     public String getFigureName() {
         return "triangle";
