@@ -1,9 +1,8 @@
-package com.kodilla.testing.shape;
-
 public class Triangle implements Shape{
 
     double a;
     double h;
+
     public Triangle (double a, double h) {
         this.a = a;
         this.h = h;
@@ -18,3 +17,4 @@ public class Triangle implements Shape{
         return a * 0.5 * h;
     }
 }
+

@@ -1,13 +1,11 @@
-package com.kodilla.testing.shape;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Nested;
-
 
 class ShapeCollectorTestSuite {
-    @Nested
+
     @DisplayName("Collector's addFigure method collects input shape in owns memory.")
     @Test
     void addFigureTest () {

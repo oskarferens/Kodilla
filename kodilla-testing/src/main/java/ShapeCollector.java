@@ -1,4 +1,3 @@
-package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
 
@@ -20,3 +19,6 @@ public class ShapeCollector {
                 list.get(2).getFigureName();
     }
 }
+
+
+
