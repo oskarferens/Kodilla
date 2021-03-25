@@ -1,3 +1,6 @@
+package com.kodilla.testing.shape;
+
+import com.kodilla.testing.shape.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,35 +18,36 @@ class ShapeCollectorTestSuite {
         Shape firstShape = collector.getFigure(0);
         //Then
         Assertions.assertNotNull(firstShape);
-        Assertions.assertEquals(firstShape.getFigureName(),"square");
+        Assertions.assertEquals(firstShape.getFigureName(),square);
     }
 
     @DisplayName("collector removes Figure method; delete input shape from it owns memory.")
     @Test
     void removeFigureTest () {
+        //Given
         Shape square = new Square(10);
         Shape circle = new Circle(4);
         Shape triangle = new Triangle(5,10);
         ShapeCollector collector = new ShapeCollector();
-
+        //When
         collector.addFigure(square);
         collector.addFigure(circle);
         collector.addFigure(triangle);
-
         collector.removeFigure(square);
-
+        //Then
         Assertions.assertEquals(2,collector.list.size());
     }
 
     @DisplayName("Using getFigure to take one from the ArrayList.")
     @Test
     void getFigure () {
+        //Given
         Shape square = new Square(10);
         ShapeCollector collector = new ShapeCollector();
+        //When
         collector.addFigure(square);
-
         collector.getFigure(0);
-
+        //Then
         Assertions.assertEquals(square,collector.getFigure(0));
     }
 
@@ -55,12 +59,10 @@ class ShapeCollectorTestSuite {
         Triangle triangle = new Triangle(5,10);
         Square square = new Square(10);
         Circle circle = new Circle(4);
-
-
+        //When
         collector.addFigure(triangle);
         collector.addFigure(square);
         collector.addFigure(circle);
-        //When
         collector.showFigures();
         String expected = "triangle,square,circle";
         //Then
