@@ -15,10 +15,10 @@ class ShapeCollectorTestSuite {
         ShapeCollector collector = new ShapeCollector();
         //When
         collector.addFigure(square);
-        Shape firstShape = collector.getFigure(0);
         //Then
+        Shape firstShape = collector.getFigure(0);
         Assertions.assertNotNull(firstShape);
-        Assertions.assertEquals(firstShape.getFigureName(),square);
+        Assertions.assertEquals(firstShape,square);
     }
 
     @DisplayName("collector removes Figure method; delete input shape from it owns memory.")
@@ -46,8 +46,8 @@ class ShapeCollectorTestSuite {
         ShapeCollector collector = new ShapeCollector();
         //When
         collector.addFigure(square);
-        collector.getFigure(0);
         //Then
+        collector.getFigure(0);
         Assertions.assertEquals(square,collector.getFigure(0));
     }
 
