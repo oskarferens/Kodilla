@@ -15,8 +15,8 @@ class ShapeCollectorTestSuite {
         ShapeCollector collector = new ShapeCollector();
         //When
         collector.addFigure(square);
-        //Then
         Shape firstShape = collector.getFigure(0);
+        //Then
         Assertions.assertNotNull(firstShape);
         Assertions.assertEquals(firstShape,square);
     }
@@ -46,8 +46,8 @@ class ShapeCollectorTestSuite {
         ShapeCollector collector = new ShapeCollector();
         //When
         collector.addFigure(square);
-        //Then
         collector.getFigure(0);
+        //Then
         Assertions.assertEquals(square,collector.getFigure(0));
     }
 

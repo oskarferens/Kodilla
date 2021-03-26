@@ -26,13 +26,13 @@ public class WeatherForecastTestSuite {
         Temperatures temperaturesMock = mock(Temperatures.class);
         Map<String,Double> temperaturesMap = new HashMap<>();
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
-        //When
         temperaturesMap.put("Rzeszow", 25.5);
         temperaturesMap.put("Krakow", 26.2);
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        //When
         int quantityOfSensors = weatherForecast.calculateForecast().size();
         //Then
         Assertions.assertEquals(5,quantityOfSensors);
@@ -43,13 +43,13 @@ public class WeatherForecastTestSuite {
         //Given
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
         Map<String, Double> temperaturesMap = new HashMap<>();
-        //When
         temperaturesMap.put("Rzeszow", 25.5);
         temperaturesMap.put("Krakow", 26.2);
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);;
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        //When
         Double result = weatherForecast.averageTemperature();
         //Then
         Assertions.assertEquals(25.56, result);
