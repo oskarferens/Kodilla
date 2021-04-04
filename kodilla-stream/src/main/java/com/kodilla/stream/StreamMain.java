@@ -1,20 +1,22 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
+public class StreamMain {
 
-class StreamMain {
     public static void main(String[] args) {
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.doBeautify("first text",(textToBeautify -> "ಠ_ಠ " +textToBeautify+" ಠ_ಠ"));
-        poemBeautifier.doBeautify("second text",(textToBeautify -> "◔̯ ◔ " +textToBeautify+" ◔̯ ◔"));
-        poemBeautifier.doBeautify("third text",(textToBeautify -> "(͡°͜ʖ͡°) " +textToBeautify+" (͡°͜ʖ͡°)"));
+        // Zainicjuj strumien stream kolekcji
+        //odfiltruj meszczyzn
 
-        System.out.println(poemBeautifier.doBeautify("first text",(textToBeautify -> "ಠ_ಠ " +textToBeautify+" ಠ_ಠ")));
-        System.out.println(poemBeautifier.doBeautify("second text",(textToBeautify -> "◔̯ ◔ " +textToBeautify+" ◔̯ ◔")));
-        System.out.println(poemBeautifier.doBeautify("third text",(textToBeautify -> "(͡°͜ʖ͡°) " +textToBeautify+" (͡°͜ʖ͡°)")));
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
     }
 }
+
+//        BookDirectory theBookDirectory = new BookDirectory();
+//
+//        Map<String, Book> theResultMapOfBooks = theBookDirectory.getList().stream()
+//                .filter(book -> book.getYearOfPublication() > 2005)
+//                .collect(Collectors.toMap(Book::getSignature, book -> book));             // [1]
+//
+//        System.out.println("# elements: " + theResultMapOfBooks.size());             // [2]
+//        theResultMapOfBooks.entrySet().stream()
+//                .map(entry -> entry.getKey() + ": " + entry.getValue())                   // [3]
+//                .forEach(System.out::println);                                            // [4]
+//    }

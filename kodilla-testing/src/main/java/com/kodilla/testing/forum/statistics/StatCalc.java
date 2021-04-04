@@ -12,13 +12,24 @@ public class StatCalc {
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
         numberOfUsers = statistics.usersNames().size();
-        if (numberOfPosts!=0) {
+
+        if (numberOfPosts != 0) {
             commentsPerPost = numberOfComments / (double)numberOfPosts;
         } else {
             commentsPerPost = 0;
         }
-        postsPerUser = numberOfPosts / (double)numberOfUsers;  //if
-        commentsPerUser = numberOfComments / (double)numberOfUsers;
+
+        if (numberOfUsers != 0) {
+            postsPerUser = numberOfUsers / (double)numberOfPosts;
+        } else {
+            postsPerUser = 0;
+        }
+
+        if (numberOfComments != 0) {
+            commentsPerUser = numberOfUsers / (double)numberOfPosts;
+        } else {
+            commentsPerUser = 0;
+        }
     }
 
     public int getNumberOfPosts() {
