@@ -8,4 +8,11 @@ public class Flight {
         this.arrivalAirport = arrivalAirport;
         this.departureAirport = departureAirport;
     }
+
+    public String getDepartureAirport() {
+        return departureAirport;
+    }
+    public String getArrivalAirport() {
+        return arrivalAirport;
+    }
 }
