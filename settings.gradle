@@ -6,4 +6,5 @@ include 'kodilla-stream'
 include 'kodilla-testing'
 include 'kodilla-excepion'
 include 'kodilla-excepion'
+include 'kodilla-board-game'
 
