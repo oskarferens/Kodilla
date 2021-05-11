@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FlightDatabase {
-    public boolean findFlight(Flight flight) throws RouteNotFoundException {
+    public void findFlight(Flight flight) throws RouteNotFoundException {
         Map<String, Boolean> destinationList = new HashMap<>();
 
         destinationList.put("Stockholm", true);
@@ -14,8 +14,8 @@ public class FlightDatabase {
         destinationList.put("Cracow", true);
         destinationList.put("Skopie", false);
 
-        if (destinationList.containsKey(flight.getArrivalAirport()) && destinationList.containsKey(flight.getDepartureAirport())) {
-            return true;
+        if (destinationList.containsKey(flight.getArrivalAirport())&& destinationList.containsValue(true)) {
+            System.out.println("Flight to: " + flight.getArrivalAirport() + " exists");
         } else {
             throw new RouteNotFoundException("Flight doesn't exist!");
         }
