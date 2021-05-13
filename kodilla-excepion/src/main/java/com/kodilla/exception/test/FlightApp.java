@@ -6,10 +6,12 @@ public class FlightApp {
 
         Flight flight = new Flight("Stockholm", "Saint Petersburg");
         Flight nextFlight = new Flight("Copenhagen", "Skopie");
+        Flight errFlight = new Flight("Copenhagen", "ABC");
 
         try {
-            flightDatabase.findFlight(flight);
-            flightDatabase.findFlight(nextFlight);
+            System.out.println(flightDatabase.findFlight(flight));
+            System.out.println(flightDatabase.findFlight(nextFlight));
+            System.out.println(flightDatabase.findFlight(errFlight));
         } catch (RouteNotFoundException e) {
             System.out.println("Flight doesn't exist");
         }
