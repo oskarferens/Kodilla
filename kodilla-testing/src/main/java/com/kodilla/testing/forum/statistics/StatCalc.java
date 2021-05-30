@@ -20,13 +20,13 @@ public class StatCalc {
         }
 
         if (numberOfUsers != 0) {
-            postsPerUser = numberOfUsers / (double)numberOfPosts;
+            postsPerUser = numberOfPosts / (double)numberOfUsers;
         } else {
             postsPerUser = 0;
         }
 
-        if (numberOfComments != 0) {
-            commentsPerUser = numberOfUsers / (double)numberOfPosts;
+        if (numberOfUsers != 0) {
+            commentsPerUser = numberOfComments / (double)numberOfUsers;
         } else {
             commentsPerUser = 0;
         }
