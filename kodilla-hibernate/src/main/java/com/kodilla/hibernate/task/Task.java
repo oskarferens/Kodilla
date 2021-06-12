@@ -5,6 +5,26 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.retrieveLongTasks",
+                query = "FROM Task WHERE duration > 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveShortTasks",
+                query = "FROM Task WHERE duration <= 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveTasksWithDurationLongerThan",
+                query = "FROM Task WHERE duration > : DURATION"
+        )
+})
+@NamedNativeQuery(
+        name = "Task.retrieveTasksWithEnoughTime",
+        query = "SELECT * FROM tasks" +
+                " WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
+        resultClass = Task.class
+)
 @Entity
 @Table(name = "TASKS")
 public final class Task {
@@ -13,16 +33,16 @@ public final class Task {
     private String description;
     private Date created;
     private int duration;
+    private TaskFinancialDetails taskFinancialDetails;
     private TaskList taskList;
-
-    public Task() {
-    }
 
     public Task(String description, int duration) {
         this.description = description;
         this.created = new Date();
         this.duration = duration;
+    }
 
+    public Task() {
     }
 
     @Id
@@ -44,7 +64,7 @@ public final class Task {
         return created;
     }
 
-    @Column(name="DURATION")
+    @Column(name = "DURATION")
     public int getDuration() {
         return duration;
     }
@@ -65,8 +85,14 @@ public final class Task {
         this.duration = duration;
     }
 
-    public void setTaskList(TaskList taskList) {
-        this.taskList = taskList;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TASKS_FINANCIALS_ID")
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
     }
 
     @ManyToOne
@@ -75,4 +101,7 @@ public final class Task {
         return taskList;
     }
 
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
 }
