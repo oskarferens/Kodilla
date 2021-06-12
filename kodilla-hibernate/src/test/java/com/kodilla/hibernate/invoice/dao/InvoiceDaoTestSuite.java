@@ -44,7 +44,7 @@ public class InvoiceDaoTestSuite {
         //When
         productRepository.save(product);
         invoiceRepository.save(invoice);
-        itemRepository.save(item);  // sprawdzic czy w trzech obiektach zopstaly nadane indentyfikatory przez hibernate. ( czy sa rozne odnogi)
+        itemRepository.save(item);
         int id = invoice.getId();
 
         //Then
