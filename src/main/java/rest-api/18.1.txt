@@ -1,0 +1,25 @@
+
+{
+"carName" : "Kevin"
+"brand" : "AUDI"
+"engine capacity":2989
+
+{
+"carname": "Kevin",
+"carbrand": "AUDI",
+"engineCapacity": 1998,
+"sits": [
+	"first":
+		"leather",
+		"black",
+	"second":
+		"leather",
+		"black",
+	"third":
+		"leather",
+		"black",
+	"fourth":
+		"leather",
+		"black"
+	]
+}
