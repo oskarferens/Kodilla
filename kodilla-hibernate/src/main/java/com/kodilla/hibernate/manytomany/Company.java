@@ -53,7 +53,8 @@ public class Company {
     public void setName(String name) {
         this.name = name;
     }
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies", targetEntity = Employee.class)
     public List<Employee> getEmployees() {
         return employees;
     }
