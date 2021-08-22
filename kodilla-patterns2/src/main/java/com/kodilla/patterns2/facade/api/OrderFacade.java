@@ -19,7 +19,7 @@ public class OrderFacade {
     public OrderFacade(ShopService shopService) {
         this.shopService = shopService;
     }
-    public void processOrder(final OrderDto order, final Long userId) throws OrderProcessingException {
+    public void processOrder( OrderDto order, Long userId) throws OrderProcessingException {
         boolean wasError = false;
         Long orderId = shopService.openOrder(userId);
         LOGGER.info("Registering new order, ID: " + orderId);
