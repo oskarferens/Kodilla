@@ -1,7 +1,5 @@
 package com.kodilla.patterns2.facade;
 
-import com.kodilla.patterns2.facade.Item;
-import com.kodilla.patterns2.facade.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
