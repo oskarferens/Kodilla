@@ -22,4 +22,9 @@ public class SalaryAdapter extends SalaryAdaptee implements SalaryCalculator {
         return calculateSalaries(employeeList).doubleValue();
     }
 
+    //W przypadku konfliktu nazw (dwie klasy Book z różnych pakietów)
+    // żadnej z klas nie importuj. Wszędzie użyj pełnej kwalifikowanej
+    // ścieżki (z pakietami) - w klasie adaptera (np. takie zapisy też
+    // Set<Book> bookSet)
+
 }
