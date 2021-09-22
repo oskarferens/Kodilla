@@ -1,0 +1,36 @@
+
+ALTER TABLE BOOKS ADD BESTSELLER BOOLEAN;
+DROP PROCEDURE IF EXISTS UpdateBestsellers;
+DROP FUNCTION IF EXISTS CheckIfBestseller;
+
+DELIMITER $$
+CREATE FUNCTION CheckIfBestseller(books_rent INT) RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+    DECLARE result BOOLEAN DEFAULT false;
+    if (books_rent>2) THEN
+        SET result = true;
+    end if;
+    return result;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE UpdateBestsellers()
+BEGIN
+    DECLARE bId INT;
+    DECLARE finished INT DEFAULT 0;
+    DECLARE allBooks CURSOR FOR SELECT BOOK_ID FROM rents GROUP BY BOOK_ID HAVING COUNT(BOOK_ID) >1;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
+    OPEN allBooks;
+    WHILE (finished = 0) DO
+            FETCH allBooks INTO bId;
+            IF (finished = 0) THEN
+                UPDATE books SET BESTSELLER = true WHERE BOOK_ID = bId;
+                COMMIT ;
+            end if;
+        end while;
+    CLOSE allBooks;
+end $$
+DELIMITER;
+
+CALL UpdateBestsellers();
