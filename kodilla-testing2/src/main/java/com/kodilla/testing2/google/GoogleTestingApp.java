@@ -10,10 +10,10 @@ public class GoogleTestingApp {
 
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX); // [2]
-        driver.get("https://www.ebay.com");                                 // [3]
+        driver.get("https://www.google.com");                                 // [3]
 
         WebElement searchField = driver.findElement(By.name(SEARCHFIELD));      // [4]
-        searchField.sendKeys("laptop");                                      // [5]
+        searchField.sendKeys("Kodilla");                                      // [5]
         searchField.submit();                                                 // [6]
     }
 }
