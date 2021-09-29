@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
@@ -15,13 +16,14 @@ import java.math.BigDecimal;
 
 public class InvoiceDaoTestSuite {
     @Autowired
-   private ProductRepository productRepository;
+    private ProductRepository productRepository;
     @Autowired
     private ItemRepository itemRepository;
     @Autowired
     private InvoiceRepository invoiceRepository;
 
-    @Test public void invoiceDaoSave() {
+    @Test
+    public void invoiceDaoSave() {
         Product product = new Product("Zelazko");
         Invoice invoice = new Invoice("FV2000/2021");
         Item item = new Item(product, new BigDecimal("100"), 1, new BigDecimal("100"));
@@ -44,8 +46,8 @@ public class InvoiceDaoTestSuite {
         int id = invoice.getId();
 
         //Then
-        Assertions.assertEquals("Zelazko",product.getName());
-        Assertions.assertEquals("Miotla",product1.getName());
+        Assertions.assertEquals("Zelazko", product.getName());
+        Assertions.assertEquals("Miotla", product1.getName());
         //CleanUp
         invoiceRepository.deleteById(id);
     }

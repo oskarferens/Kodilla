@@ -1,6 +1,5 @@
 package com.kodilla.patterns2.testing.shape;
 
-import com.kodilla.testing.shape.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
