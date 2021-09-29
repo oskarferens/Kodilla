@@ -24,7 +24,7 @@ class DbManagerTestSuite {
         DbManager dbManager = DbManager.getInstance();
 
         //When
-        String sqlQuery = "SELECT * FROM kodilla_course.USERS";
+        String sqlQuery = "SELECT * FROM kodilla_project.USER";
         Statement statement = dbManager.getConnection().createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
 
@@ -38,7 +38,7 @@ class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        assertEquals(5, counter);
+        assertEquals(0, counter);
     }
 
     @Test
